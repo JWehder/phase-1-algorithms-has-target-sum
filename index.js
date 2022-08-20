@@ -1,6 +1,38 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // outer for loop grabbing each individual element
+  flag = false;
+  let c = 0
+  while (c <= array.length) {
+    for (let a of array) {
+      let index = array.indexOf(a)
+      let testArray = array.slice(index + 1)
+      console.log(testArray);
+      for (let b of testArray) {
+        let sum = a + b;
+        console.log(sum)
+        if (sum === target){
+          flag = true
+          return flag
+        }
+      }
+    }
+  c++;
+  }
+  return flag
 }
+
+/*  Another thought:
+for (let a of array){
+  let difference = target - a;
+  console.log(difference)
+  if (difference in array && array.indexOf(difference) !== array.indexOf(a)){
+    console.log(difference, a)
+    return true
+  }
+}
+*/
+
+
 
 /* 
   Write the Big O time complexity of your function here
@@ -8,7 +40,9 @@ function hasTargetSum(array, target) {
 
 /* 
   Add your pseudocode here
+  
 */
+
 
 /*
   Add written explanation of your solution here
